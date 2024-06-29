@@ -6,6 +6,7 @@ require('dotenv').config();
 const port = process.env.PORT || 8080;
 
 const authRoutes = require('./routes/auth');
+const chatRoutes = require('./routes/chat');
 
 const mongoose = require('mongoose');
 
@@ -23,6 +24,9 @@ app.use(bodyParser.json());
 
 // routes
 app.use('/auth', authRoutes);
+
+// chat
+app.use('/chat', chatRoutes);
 
 // error handler
 app.use((err, req, res, next) => {
